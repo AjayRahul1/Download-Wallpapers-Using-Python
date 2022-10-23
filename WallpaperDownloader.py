@@ -25,8 +25,8 @@ def download_wallpapers(url, folder_to_be_created_for_wallpapers):
 
 wallpaper_search_name_input = input("Enter the name to download it's wallpapers: ")
 wallpaper_dl_url = wallpaper_search_function(wallpaper_search_name_input)
-parent_path = "C:\\Users\\Public\\Downloads\\"
-folder_to_be_created_for_wallpapers = os.path.join(parent_path,wallpaper_search_name_input)
+parent_path = f"{os.path.expanduser('~')}\\Downloads"
+folder_to_be_created_for_wallpapers = os.path.join(parent_path,wallpaper_search_name_input+" Wallpapers")
 os.mkdir(folder_to_be_created_for_wallpapers)
 # print(folder_to_be_created_for_wallpapers)
 for url in wallpaper_dl_url:
