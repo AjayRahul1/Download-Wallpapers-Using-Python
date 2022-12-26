@@ -23,10 +23,10 @@ def download_wallpapers(url, folder_to_be_created_for_wallpapers):
     download_link_path = f"{folder_to_be_created_for_wallpapers}\{wallpaper_name}{ext}"
     open(download_link_path,'wb').write(res.content)
 
-wallpaper_search_name_input = input("Enter the name to download it's wallpapers: ")
+wallpaper_search_name_input = input("Enter the name to download it's wallpapers: ").replace(" ", "%20")
 wallpaper_dl_url = wallpaper_search_function(wallpaper_search_name_input)
 parent_path = f"{os.path.expanduser('~')}\\Downloads"
-folder_to_be_created_for_wallpapers = os.path.join(parent_path,wallpaper_search_name_input+" Wallpapers")
+folder_to_be_created_for_wallpapers = os.path.join(parent_path,wallpaper_search_name_input.replace("%20"," ")+" Wallpapers")
 os.mkdir(folder_to_be_created_for_wallpapers)
 # print(folder_to_be_created_for_wallpapers)
 for url in wallpaper_dl_url:
