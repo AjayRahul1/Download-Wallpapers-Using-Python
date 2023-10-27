@@ -1,7 +1,4 @@
-import requests
-import os
-import random
-import string
+import requests, os, random, string
 
 def wallpaper_search_function(search_query):
     search_query = search_query.replace(" ", "+")
@@ -23,7 +20,6 @@ def download_wallpapers(url, folder_to_be_created_for_wallpapers):
     wallpaper_name = generate_id() # Generate a random name for the wallpaper
     ext = os.path.splitext(url)[1]
     download_link_path = f"{folder_to_be_created_for_wallpapers}/{wallpaper_name}{ext}"
-    # open(download_link_path,'wb').write(res.content)
     os.chdir(folder_to_be_created_for_wallpapers)
     os.system(f"wget {url}")
 
