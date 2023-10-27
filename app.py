@@ -1,14 +1,16 @@
-from flask import Flask, render_template, request
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 from WallpaperDownloader import wallpaper_search_function
 
-app = Flask(__name__)
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
 @app.get('/')
-def wallHome():
-  return render_template('index.html')
+def wallHome(request: Request):
+  return templates.TemplateResponse('index.html', {"request": request})
 
 @app.get("/get_wps")
-def return_wallpapers():
-  wallpaper_search = request.args.get('wallpaper_search')
+def return_wallpapers(request: Request):
+  wallpaper_search = request.query_params['wallpaper_search']
   urls = wallpaper_search_function(wallpaper_search)
-  return render_template("images_htmx.html", urls=urls)
+  return templates.TemplateResponse("images_htmx.html", {"request": request, "urls": urls})
