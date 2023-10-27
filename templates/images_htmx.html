@@ -1,0 +1,18 @@
+<div class="container" style="width: 30%; height: 30%;">
+  <style>
+    /* Custom CSS to center the image */
+    .centered-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Minimum height to cover the entire viewport */
+    }
+    .centered-image {
+        max-width: 100%; /* Limit the image's width */
+        height: auto; /* Maintain the aspect ratio */
+    }
+  </style>
+  {% for url in urls %}
+  <img class="mt-2 centered-image img-fluid" src="{{ url }}" alt="{{ url }}" lazyload>
+  {% endfor %}
+</div>
