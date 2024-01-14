@@ -23,5 +23,5 @@ python WallpaperDownloader.py
 
 ### Future Updates
 
--[x] Downloading into `Primary Downloads` directory instead of `Public Downloads` directory.
--[x] Downloading into Downloads folder of `Linux` Systems
+- [x] Downloading into `Primary Downloads` directory instead of `Public Downloads` directory.
+- [x] Downloading into Downloads folder of `Linux` Systems
